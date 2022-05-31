@@ -6,6 +6,9 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get('https://www.youtube.com/')
 
+# seearchbox = driver.find_element_by_xpath("//*[@id="search"]")
+# searchbox.send_keys('igor qa')
+
 # seearchbox = driver.find_element_by_xpath('//*[@id="search"]')
 
 time.sleep(5)
