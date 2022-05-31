@@ -1,9 +1,17 @@
 from selenium import webdriver
-driver = webdriver.Chrome()
+from webdriver_manager.chrome import ChromeDriverManager 
+import time
+
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get('https://www.youtube.com/')
-seearchbox = driver.find_element_by_xpath('//*[@id="search"]
-')
+
+# seearchbox = driver.find_element_by_xpath('//*[@id="search"]')
+
+time.sleep(5)
+
+driver.close()
+driver.quit()
 
 
 
