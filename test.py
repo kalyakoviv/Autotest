@@ -15,7 +15,7 @@ search = driver.find_element_by_name("text")
 search.send_keys("Тензор")
 time.sleep(5)
 
-driver.find_element_by_xpath("/html/body/div[3]")
+suggest = driver.find_element_by_xpath("/html/body/div[3]")
 time.sleep(5)
 
 search.send_keys(Keys.RETURN)
