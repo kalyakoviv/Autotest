@@ -45,4 +45,8 @@ def test_tenzor_ru(browser):
     page.check_tenzor_ru()
 
 # Полный цикл
-
+def test_number_1(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.test_number_1()
