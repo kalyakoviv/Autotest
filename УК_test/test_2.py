@@ -91,3 +91,10 @@ def test_check_step_8(browser):
     page.open()
     page.category_1()
     page.check_step_8()
+
+# Полный цикл
+def test_Number_2(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.test_number_2()
