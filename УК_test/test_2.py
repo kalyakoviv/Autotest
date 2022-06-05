@@ -60,6 +60,34 @@ def test_check_image_open(browser):
     page.category_1()
     page.check_image_open()
 
+# Нажать кнопку вперед
+def test_forward_button(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.forward_button()
 
+# Проверить, что картинка сменилась
+def test_change_image(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.change_image()
 
+# Нажать назад
+def test_back_button(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.back_button()
 
+# Проверить, что картинка осталась из шага 8
+def test_check_step_8(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.check_step_8()

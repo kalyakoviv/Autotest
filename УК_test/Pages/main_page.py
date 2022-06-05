@@ -30,6 +30,58 @@ class MainPage(BasePage):
         image_op.click()
         time.sleep(5)
 
+    def forward_button(self):
+        image_op = self.browser.find_element(By.CSS_SELECTOR,'[class="serp-item__preview"]:first-child')
+        image_op.click()
+        time.sleep(5)
+        button_forward = self.browser.find_element(By.CSS_SELECTOR,'div[class*="Button_type_next"]')
+        button_forward.click()
+        time.sleep(5)
+
+    def back_button(self):
+        image_op = self.browser.find_element(By.CSS_SELECTOR,'[class="serp-item__preview"]:first-child')
+        image_op.click()
+        time.sleep(5)
+        button_forward = self.browser.find_element(By.CSS_SELECTOR,'div[class*="Button_type_next"]')
+        button_forward.click()
+        time.sleep(2)
+        button_back = self.browser.find_element(By.CSS_SELECTOR,'div[class*="Button_type_prev"]')
+        button_back.click()
+        time.sleep(2)
+
+    def check_step_8(self):
+        image_op = self.browser.find_element(By.CSS_SELECTOR, '[class="serp-item__preview"]:first-child')
+        image_op.click()
+        time.sleep(5)
+        img_3 = self.browser.current_url
+        button_forward = self.browser.find_element(By.CSS_SELECTOR, 'div[class*="Button_type_next"]')
+        button_forward.click()
+        time.sleep(2)
+        button_back = self.browser.find_element(By.CSS_SELECTOR, 'div[class*="Button_type_prev"]')
+        button_back.click()
+        time.sleep(2)
+        img_4 = self.browser.current_url
+
+        if img_3 == img_4:
+            print("Картинка осталась из шага 8")
+        else:
+            print("Картинка не из шага 8")
+
+    def change_image(self):
+        image_op = self.browser.find_element(By.CSS_SELECTOR, '[class="serp-item__preview"]:first-child')
+        image_op.click()
+        time.sleep(5)
+        img_1 = self.browser.current_url
+        button_forward = self.browser.find_element(By.CSS_SELECTOR,'div[class*="Button_type_next"]')
+        button_forward.click()
+        time.sleep(5)
+        img_2 = self.browser.current_url
+        if img_1 != img_2:
+            print("Картинка сменилась")
+        else:
+            print("Картинка не сменилась")
+
+
     def check_image_open(self):
         image_op = self.browser.find_element(By.CSS_SELECTOR,'[class="serp-item__preview"]:first-child')
         image_op.click()
