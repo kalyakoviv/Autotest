@@ -36,3 +36,30 @@ def test_open_category(browser):
     page.open()
     page.category_1()
 
+# Проверить, что название категории отображается в поле поиска
+def test_check_category(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.check_category()
+
+# Открыть 1 картинку
+def test_open_image(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.open_image()
+
+# Проверить, что картинка открылась
+def test_check_image_open(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.category_1()
+    page.check_image_open()
+
+
+
+

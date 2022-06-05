@@ -19,6 +19,24 @@ class MainPage(BasePage):
         category.click()
         time.sleep(5)
 
+    def check_category(self):
+        if self.browser.find_element(By.TAG_NAME, "title") != 0:
+            print('Название категории отображается')
+        else:
+            print('Название категории не отобразилось')
+
+    def open_image(self):
+        image_op = self.browser.find_element(By.CSS_SELECTOR,'[class="serp-item__preview"]:first-child')
+        image_op.click()
+        time.sleep(5)
+
+    def check_image_open(self):
+        image_op = self.browser.find_element(By.CSS_SELECTOR,'[class="serp-item__preview"]:first-child')
+        image_op.click()
+        time.sleep(5)
+        assert self.search_present(By.CSS_SELECTOR,'[class ="Modal Modal_visible Modal_theme_normal MMViewerModal ImagesViewer"]'), "The picture didn't open"
+        time.sleep(5)
+
     def should_be_search(self):
         assert self.search_present(By.NAME, "text"), "The search field is missing"
         time.sleep(5)
