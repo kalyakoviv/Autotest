@@ -18,14 +18,23 @@ def test_should_be_search(browser):
     time.sleep(7)
 
 # Ввести в поиск Тензор
-
 def test_tenzor(browser):
     link = "https://yandex.ru/"
     page = MainPage(browser, link)
     page.open()
     time.sleep(1)
-    page.should_be_search()
-    time.sleep(7)
     page.search_tenzor()
     time.sleep(2)
+
+# Проверить, что появилась таблица с подсказками (suggest)
+
+def test_should_search_table_with_hints(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    time.sleep(1)
+    page.search_tenzor()
+    time.sleep(2)
+    page.should_search_table_with_hints()
+    time.sleep(3)
 

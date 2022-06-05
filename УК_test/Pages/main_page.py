@@ -1,6 +1,10 @@
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
 
+class YandexSeacrhLocators:
+    LOCATOR_YANDEX_SEARCH_FIELD = (By.NAME, "text")
+    LOCATOR_YANDEX_SEARCH_BUTTON = (By.CLASS_NAME, "search2__button")
+    LOCATOR_YANDEX_NAVIGATION_BAR = (By.CSS_SELECTOR, ".service__name")
 
 class MainPage(BasePage):
     def go_to_login_page(self):
@@ -17,3 +21,6 @@ class MainPage(BasePage):
         search_tenz = self.browser.find_element(By.NAME, "text")
         search_tenz.click()
         search_tenz.send_keys("Тензор")
+
+    def should_search_table_with_hints(self):
+        assert self.search_table_with_hints(By.XPATH, ("/html/body/div[3]")), "There is no table with hints"

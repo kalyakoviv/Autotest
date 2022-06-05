@@ -23,6 +23,13 @@ class BasePage():
             return False
         return True
 
+    def search_table_with_hints(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except (NoSuchElementException):
+            return False
+        return True
+
 
 
 
