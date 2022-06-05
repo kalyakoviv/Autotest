@@ -13,28 +13,36 @@ def test_should_be_search(browser):
     link = "https://yandex.ru/"
     page = MainPage(browser, link)
     page.open()
-    time.sleep(1)
     page.should_be_search()
-    time.sleep(7)
 
 # Ввести в поиск Тензор
 def test_tenzor(browser):
     link = "https://yandex.ru/"
     page = MainPage(browser, link)
     page.open()
-    time.sleep(1)
     page.search_tenzor()
-    time.sleep(2)
 
 # Проверить, что появилась таблица с подсказками (suggest)
-
 def test_should_search_table_with_hints(browser):
     link = "https://yandex.ru/"
     page = MainPage(browser, link)
     page.open()
-    time.sleep(1)
     page.search_tenzor()
-    time.sleep(2)
     page.should_search_table_with_hints()
-    time.sleep(3)
+
+# При нажатии Enter появляется таблица результатов поиска
+def test_enter(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.search_enter_clicking()
+
+# Проверить 1 ссылка ведет на сайт tensor.ru
+def test_tenzor_ru(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)
+    page.open()
+    page.check_tenzor_ru()
+
+# Полный цикл
 
