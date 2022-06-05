@@ -1,5 +1,4 @@
-# from selenium.common.exceptions import имя_исключения
-
+from selenium.common.exceptions import NoSuchElementException
 
 class BasePage():
     def open(self):
@@ -10,10 +9,19 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
-    # def is_element_present(self, how, what):
-    #     try:
-    #         self.browser.find_element(how, what)
-    #     except (имя_исключения):
-    #         return False
-    #     return True
+    def is_element_present(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except (NoSuchElementException):
+            return False
+        return True
+
+    def search_present(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except (NoSuchElementException):
+            return False
+        return True
+
+
 
