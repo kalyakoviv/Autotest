@@ -42,7 +42,7 @@ def test_tenzor_ru(browser):
     link = "https://yandex.ru/"
     page = MainPage(browser, link)
     page.open()
-    page.check_tenzor_ru()
+    page.check_tenzor_ru() # Обновляем страницу, чтобы понимать, что программа перешла в новую вкладку.
 
 # Полный цикл
 def test_number_1(browser):

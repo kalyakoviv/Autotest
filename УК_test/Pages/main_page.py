@@ -4,7 +4,20 @@ from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 import time
 
+
 class MainPage(BasePage):
+
+
+
+    def category_1(self):
+        images_clicking = self.browser.find_element(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]"))
+        images_clicking.click()
+        time.sleep(3)
+        self.browser.switch_to.window(self.browser.window_handles[1])
+        self.browser.refresh()
+        category = self.browser.find_element(By.CSS_SELECTOR, '[class="PopularRequestList-Item PopularRequestList-Item_pos_0"]')
+        category.click()
+        time.sleep(5)
 
     def should_be_search(self):
         assert self.search_present(By.NAME, "text"), "The search field is missing"
@@ -18,6 +31,24 @@ class MainPage(BasePage):
 
     def should_search_table_with_hints(self):
         assert self.search_table_with_hints(By.XPATH, ("/html/body/div[3]")), "There is no table with hints"
+        time.sleep(3)
+
+    def should_images(self):
+        assert self.search_present(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]")), "There is no link to 'Pictures'"
+        time.sleep(3)
+
+    def search_images_url(self):
+        images_clicking = self.browser.find_element(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]"))
+        images_clicking.click()
+        time.sleep(3)
+        self.browser.switch_to.window(self.browser.window_handles[1])
+        self.browser.refresh()
+        print("ssylka", self.browser.current_url)
+        assert self.search_present(By.XPATH, ('//*[@id="tabs-navigation-placeholder"]/div/a[2]/div[2]')), "This is not a website https://yandex.ru/images/"
+
+    def check_images_clicking(self):
+        images_clicking = self.browser.find_element(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]"))
+        images_clicking.click()
         time.sleep(3)
 
     def search_enter_clicking(self):
