@@ -1,10 +1,6 @@
-from selenium.webdriver.common.by import By
 from .base_page import BasePage
 from selenium.webdriver.common.keys import Keys
-from selenium import webdriver
-import time
 from .locators import BasePageLocators
-
 
 class MainPage(BasePage):
 
@@ -12,30 +8,30 @@ class MainPage(BasePage):
         page = MainPage(self.browser, self.url)
         page.open()
 
-    def should_images(self):
+    def link_Pictures_present_page(self):
         assert self.search_present(*BasePageLocators.IMAGES_LOCATOR), "Ссылка 'Картинки' отсутствует"
 
     def images_click(self):
         images_clk = self.browser.find_element(*BasePageLocators.IMAGES_LOCATOR)
         images_clk.click()
 
-    def search_images_0(self):
+    def search_images_url_yandex(self):
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.browser.refresh()
         print("Текущая ссылка: ", self.browser.current_url)
 
-    def open_1_categoty(self):
+    def open_first_categoty(self):
         category = self.browser.find_element(*BasePageLocators.CATEGORY_LOCATOR)
         category.click()
 
-    def check_category_images(self):
+    def check_name_category_images(self):
         assert self.search_present(*BasePageLocators.CATEGORY_NAME_LOCATOR), "Название категории не отобразилось"
 
-    def open_image_number_1(self):
+    def open_image_number_one(self):
         image_open = self.browser.find_element(*BasePageLocators.IMAGE_OPEN_LOCATOR)
         image_open.click()
 
-    def check_open_image_1(self):
+    def check_open_image_number_one(self):
         assert self.search_present(*BasePageLocators.CHECK_IMAGE_OPEN_LOCATOR), "Картинка не открылась"
 
     def press_button_forward(self):
@@ -65,10 +61,3 @@ class MainPage(BasePage):
     def opening_first_link(self):
         results = self.browser.find_element(*BasePageLocators.TENZOR_LOCATOR)
         results.click()
-
-    def checking_first_link(self):
-        self.browser.switch_to.window(self.browser.window_handles[1])
-        self.browser.refresh()
-        tap_link = self.browser.current_url
-        assert 'tensor.ru' in tap_link, "Ссылка не ведет на сайт tensor.ru"
-

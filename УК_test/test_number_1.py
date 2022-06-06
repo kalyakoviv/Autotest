@@ -1,7 +1,5 @@
 from pages.main_page import MainPage
-from selenium.webdriver.common.keys import Keys
 
-import time
 
 def test_1(browser):
     main_page = MainPage(browser, url='https://yandex.ru/')
@@ -10,5 +8,9 @@ def test_1(browser):
     main_page.enter_tensor_search() # Ввести в поиск Тензор
     main_page.table_with_hints_appeared() # Проверить, что появилась таблица с подсказками (suggest)
     main_page.ENTER_search_results()    # При нажатии Enter появляется таблица результатов поиска
-    main_page.opening_first_link()
-    main_page.checking_first_link() # Проверить 1 ссылка ведет на сайт tensor.ru
+    main_page.opening_first_link() # Открыть первую ссылку
+    # Проверить 1 ссылка ведет на сайт tensor.ru
+    browser.switch_to.window(browser.window_handles[1])
+    browser.refresh()
+    tap_link = browser.current_url
+    assert 'tensor.ru' in tap_link, "Ссылка не ведет на сайт tensor.ru"
