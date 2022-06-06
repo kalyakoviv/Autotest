@@ -23,14 +23,14 @@ class MainPage(BasePage):
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.browser.refresh()
         print("Текущая ссылка: ", self.browser.current_url)
-        assert self.search_present(*BasePageLocators.IMAGES_RU_LOCATOR), "Это не сайт https://yandex.ru/images/"
+
 
     def open_1_categoty(self):
-        category = self.browser.find_element(*BasePageLocators.СATEGORY_LOCATOR)
+        category = self.browser.find_element(*BasePageLocators.CATEGORY_LOCATOR)
         category.click()
 
     def check_category_images(self):
-        assert self.search_present(*BasePageLocators.СATEGORY_NAME_LOCATOR), "Название категории не отобразилось"
+        assert self.search_present(*BasePageLocators.CATEGORY_NAME_LOCATOR), "Название категории не отобразилось"
 
     def open_image_number_1(self):
         image_open = self.browser.find_element(*BasePageLocators.IMAGE_OPEN_LOCATOR)
@@ -40,8 +40,16 @@ class MainPage(BasePage):
         assert self.search_present(*BasePageLocators.CHECK_IMAGE_OPEN_LOCATOR), "Картинка не открылась"
 
     def press_button_forward(self):
+
         button_forward = self.browser.find_element(*BasePageLocators.BUTTON_FORWARD_LOCATOR)
         button_forward.click()
+
+    def press_button_back(self):
+        button_back = self.browser.find_element(*BasePageLocators.BUTTON_BACK_LOCATOR)
+        button_back.click()
+
+
+
 
 
 
@@ -54,7 +62,7 @@ class MainPage(BasePage):
         time.sleep(3)
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.browser.refresh()
-        category = self.browser.find_element(*BasePageLocators.KATEGORY_LOCATOR)
+        category = self.browser.find_element(*BasePageLocators.CATEGORY_LOCATOR)
         category.click()
         time.sleep(5)
 
