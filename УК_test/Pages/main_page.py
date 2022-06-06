@@ -1,6 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.keys import Keys
-from .locators import BasePageLocators
+from УК_test.locators.locators import BasePageLocators
 
 class MainPage(BasePage):
 
@@ -61,3 +61,8 @@ class MainPage(BasePage):
     def opening_first_link(self):
         results = self.browser.find_element(*BasePageLocators.TENZOR_LOCATOR)
         results.click()
+
+    def switching_first_tab(self):
+        self.browser.switch_to.window(self.browser.window_handles[1])
+        self.browser.refresh()
+

@@ -1,4 +1,4 @@
-from pages.main_page import MainPage
+from УК_test.pages.main_page import MainPage
 
 import time
 

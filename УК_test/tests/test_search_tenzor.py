@@ -1,4 +1,4 @@
-from pages.main_page import MainPage
+from УК_test.pages.main_page import MainPage
 
 
 def test_search_tenzor(browser):
@@ -10,7 +10,5 @@ def test_search_tenzor(browser):
     main_page.enter_search_results()    # При нажатии Enter появляется таблица результатов поиска
     main_page.opening_first_link() # Открыть первую ссылку
     # Проверить 1 ссылка ведет на сайт tensor.ru
-    browser.switch_to.window(browser.window_handles[1])
-    browser.refresh()
-    tap_link = browser.current_url
-    assert 'tensor.ru' in tap_link, "Ссылка не ведет на сайт tensor.ru"
+    main_page.switching_first_tab()
+    assert 'tensor.ru' in browser.current_url, "Ссылка не ведет на сайт tensor.ru"
