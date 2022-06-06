@@ -8,10 +8,45 @@ from .locators import BasePageLocators
 
 class MainPage(BasePage):
 
-    def main_page_link(browser):
-        link = "https://yandex.ru/"
-        page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+    def main_page_link(self):
+        page = MainPage(self.browser, self.url)
         page.open()
+
+    def should_images(self):
+        assert self.search_present(*BasePageLocators.IMAGES_LOCATOR), "Ссылка 'Картинки' отсутствует"
+
+    def images_click(self):
+        images_clk = self.browser.find_element(*BasePageLocators.IMAGES_LOCATOR)
+        images_clk.click()
+
+    def search_images_0(self):
+        self.browser.switch_to.window(self.browser.window_handles[1])
+        self.browser.refresh()
+        print("Текущая ссылка: ", self.browser.current_url)
+        assert self.search_present(*BasePageLocators.IMAGES_RU_LOCATOR), "Это не сайт https://yandex.ru/images/"
+
+    def open_1_categoty(self):
+        category = self.browser.find_element(*BasePageLocators.СATEGORY_LOCATOR)
+        category.click()
+
+    def check_category_images(self):
+        assert self.search_present(*BasePageLocators.СATEGORY_NAME_LOCATOR), "Название категории не отобразилось"
+
+    def open_image_number_1(self):
+        image_open = self.browser.find_element(*BasePageLocators.IMAGE_OPEN_LOCATOR)
+        image_open.click()
+
+    def check_open_image_1(self):
+        assert self.search_present(*BasePageLocators.CHECK_IMAGE_OPEN_LOCATOR), "Картинка не открылась"
+
+    def press_button_forward(self):
+        button_forward = self.browser.find_element(*BasePageLocators.BUTTON_FORWARD_LOCATOR)
+        button_forward.click()
+
+
+
+
+
 
     def category_1(self):
         images_clicking = self.browser.find_element(*BasePageLocators.IMAGES_LOCATOR)
@@ -147,9 +182,7 @@ class MainPage(BasePage):
         assert self.search_table_with_hints(By.XPATH, ("/html/body/div[3]")), "There is no table with hints"
         time.sleep(3)
 
-    def should_images(self):
-        assert self.search_present(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]")), "There is no link to 'Pictures'"
-        time.sleep(3)
+
 
     def search_images_url(self):
         images_clicking = self.browser.find_element(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]"))

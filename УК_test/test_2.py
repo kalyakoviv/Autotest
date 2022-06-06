@@ -2,15 +2,24 @@ from pages.main_page import MainPage
 
 import time
 
+# Зайти на yandex.ru
+def test_open_123(browser):
+    main_page = MainPage(browser, url='https://yandex.ru/')
+    main_page.main_page_link()
+    time.sleep(1)
 
 # Зайти на yandex.ru
 def test_open(browser):
-    #link = "https://yandex.ru/"
-    #page = MainPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
-    MainPage.main_page_link()
-    #page.open
-    time.sleep(1)
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)   # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+    page.open
+    time.sleep(3)
 
+
+def main_page_link(browser):
+    link = "https://yandex.ru/"
+    page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+    page.open()
 
 
 # Проверить, что ссылка «Картинки» присутствует на странице
