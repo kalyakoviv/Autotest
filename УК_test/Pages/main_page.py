@@ -56,7 +56,7 @@ class MainPage(BasePage):
         search_tenz.send_keys("Тензор")
 
     def table_with_hints_appeared(self):
-        assert self.search_table_with_hints(*BasePageLocators.TABLE_WITH_HINTS_APPEARED_LOCATOR), "Таблица с подсказками не появилась"
+        assert self.search_present(*BasePageLocators.TABLE_WITH_HINTS_APPEARED_LOCATOR), "Таблица с подсказками не появилась"
 
     def ENTER_search_results(self):
         search_enter = self.browser.find_element(*BasePageLocators.YANDEX_SEARCH_LOCATOR)
@@ -65,7 +65,6 @@ class MainPage(BasePage):
     def opening_first_link(self):
         results = self.browser.find_element(*BasePageLocators.TENZOR_LOCATOR)
         results.click()
-
 
     def checking_first_link(self):
         self.browser.switch_to.window(self.browser.window_handles[1])

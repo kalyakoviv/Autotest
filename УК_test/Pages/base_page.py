@@ -9,27 +9,10 @@ class BasePage():
         self.url = url
         self.browser.implicitly_wait(timeout)
 
-    def is_element_present(self, how, what):
-        try:
-            self.browser.find_element(how, what)
-        except (NoSuchElementException):
-            return False
-        return True
-
     def search_present(self, how, what):
         try:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
             return False
         return True
-
-    def search_table_with_hints(self, how, what):
-        try:
-            self.browser.find_element(how, what)
-        except (NoSuchElementException):
-            return False
-        return True
-
-
-
 
