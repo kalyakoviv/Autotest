@@ -11,3 +11,6 @@ class BasePageLocators():
     CHECK_IMAGE_OPEN_LOCATOR = (By.CSS_SELECTOR, '[class ="Modal Modal_visible Modal_theme_normal MMViewerModal ImagesViewer"]')
     BUTTON_FORWARD_LOCATOR = (By.CSS_SELECTOR,'div[class*="Button_type_next"]')
     BUTTON_BACK_LOCATOR = (By.CSS_SELECTOR,'div[class*="Button_type_prev"]')
+    YANDEX_SEARCH_LOCATOR = (By.NAME, "text")
+    TABLE_WITH_HINTS_APPEARED_LOCATOR = (By.XPATH, "/html/body/div[3]")
+    TENZOR_LOCATOR = (By.CLASS_NAME, 'OrganicTitleContentSpan')
