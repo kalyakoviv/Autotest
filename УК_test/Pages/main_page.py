@@ -3,19 +3,23 @@ from .base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 import time
+from .locators import BasePageLocators
 
 
 class MainPage(BasePage):
 
-
+    def main_page_link(browser):
+        link = "https://yandex.ru/"
+        page = MainPage(browser, link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
+        page.open()
 
     def category_1(self):
-        images_clicking = self.browser.find_element(By.XPATH, ("/html/body/div[1]/div[2]/div[2]/div/div[1]/nav/div/ul/li[5]/a/div[2]"))
+        images_clicking = self.browser.find_element(*BasePageLocators.IMAGES_LOCATOR)
         images_clicking.click()
         time.sleep(3)
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.browser.refresh()
-        category = self.browser.find_element(By.CSS_SELECTOR, '[class="PopularRequestList-Item PopularRequestList-Item_pos_0"]')
+        category = self.browser.find_element(*BasePageLocators.KATEGORY_LOCATOR)
         category.click()
         time.sleep(5)
 
