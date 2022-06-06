@@ -8,7 +8,7 @@ class MainPage(BasePage):
         page = MainPage(self.browser, self.url)
         page.open()
 
-    def link_Pictures_present_page(self):
+    def link_pictures_present_page(self):
         assert self.search_present(*BasePageLocators.IMAGES_LOCATOR), "Ссылка 'Картинки' отсутствует"
 
     def images_click(self):
@@ -54,7 +54,7 @@ class MainPage(BasePage):
     def table_with_hints_appeared(self):
         assert self.search_present(*BasePageLocators.TABLE_WITH_HINTS_APPEARED_LOCATOR), "Таблица с подсказками не появилась"
 
-    def ENTER_search_results(self):
+    def enter_search_results(self):
         search_enter = self.browser.find_element(*BasePageLocators.YANDEX_SEARCH_LOCATOR)
         search_enter.send_keys(Keys.RETURN)
 
