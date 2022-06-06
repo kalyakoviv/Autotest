@@ -18,7 +18,6 @@ class MainPage(BasePage):
     def search_images_url_yandex(self):
         self.browser.switch_to.window(self.browser.window_handles[1])
         self.browser.refresh()
-        print("Текущая ссылка: ", self.browser.current_url)
 
     def open_first_categoty(self):
         category = self.browser.find_element(*BasePageLocators.CATEGORY_LOCATOR)
