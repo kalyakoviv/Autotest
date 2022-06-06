@@ -1,6 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.keys import Keys
-from УК_test.locators.locators import BasePageLocators
+from locators.locators import BasePageLocators
 
 class MainPage(BasePage):
 

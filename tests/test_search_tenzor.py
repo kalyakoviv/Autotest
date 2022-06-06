@@ -1,4 +1,4 @@
-from УК_test.pages.main_page import MainPage
+from pages.main_page import MainPage
 
 
 def test_search_tenzor(browser):

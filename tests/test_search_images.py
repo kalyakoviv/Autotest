@@ -1,4 +1,4 @@
-from УК_test.pages.main_page import MainPage
+from pages.main_page import MainPage
 
 import time
 
@@ -14,6 +14,7 @@ def test_search_images(browser):
     main_page.check_open_image_number_one() # Проверить, что картинка открылась
     img_1 = browser.current_url
     main_page.press_button_forward() # Нажать кнопку вперед
+    time.sleep(2)
     img_2 = browser.current_url
     # Проверить, что картинка сменилась
     assert img_1 != img_2, "Картинка не сменилась"
